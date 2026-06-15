@@ -1,0 +1,11 @@
+{
+  "name": "pulseanalytics-root",
+  "version": "1.0.0",
+  "description": "Workspace runner for PulseAnalytics Dashboard",
+  "scripts": {
+    "start": "npm start --prefix backend",
+    "backend": "npm start --prefix backend",
+    "frontend": "npm run dev --prefix frontend",
+    "seed": "node backend/seed.js"
+  }
+}
