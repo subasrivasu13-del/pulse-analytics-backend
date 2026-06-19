@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
 const JWT_SECRET = process.env.JWT_SECRET || 'super_secret_jwt_key_12345';
-const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:5173';
+const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:5000';
 
 // Helper to generate JWT token
 const generateToken = (user) => {
