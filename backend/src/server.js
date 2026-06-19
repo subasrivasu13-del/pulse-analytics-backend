@@ -5,6 +5,7 @@ dotenv.config();
 const express = require('express');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
+const path = require('path');
 const connectDB = require('./config/db');
 const passport = require('./config/passport');
 const trackActivity = require('./middlewares/trackActivity');
@@ -34,8 +35,13 @@ app.use(trackActivity);
 app.use('/auth', require('./routes/authRoutes'));
 app.use('/analytics', require('./routes/analyticsRoutes'));
 
-app.get('/', (req, res) => {
-  res.send('PulseAnalytics API is running...');
+// Serve frontend static files
+const frontendPath = path.join(__dirname, '../../frontend/dist');
+app.use(express.static(frontendPath));
+
+// SPA catch-all: serve index.html for all non-API routes
+app.get('*', (req, res) => {
+  res.sendFile(path.join(frontendPath, 'index.html'));
 });
 
 // Port configuration
