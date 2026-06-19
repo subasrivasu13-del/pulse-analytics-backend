@@ -19,9 +19,9 @@ router.get('/google/callback', (req, res, next) => {
   if (!passport._strategies || !passport._strategies.google) {
     return res.redirect('/auth/sandbox');
   }
-  passport.authenticate('google', { 
-    session: false, 
-    failureRedirect: `${process.env.FRONTEND_URL || 'http://localhost:5173'}/login?error=oauth_failed` 
+  passport.authenticate('google', {
+    session: false,
+    failureRedirect: `${process.env.FRONTEND_URL || 'http://localhost:5000'}/login?error=oauth_failed`
   })(req, res, next);
 }, authController.googleCallback);
 
