@@ -6,6 +6,7 @@
     "start": "npm start --prefix backend",
     "backend": "npm start --prefix backend",
     "frontend": "npm run dev --prefix frontend",
+    "build": "npm run build --prefix frontend",
     "seed": "node backend/seed.js"
   }
 }
